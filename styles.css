@@ -1,0 +1,531 @@
+#favicon {
+    width: 3vmin;
+}
+
+h1 {
+    margin-bottom: 0;
+}
+
+/*Set the font*/
+body {
+    font-family: 'Arial', sans-serif;
+    text-align: center;
+    font-size: 1.75vmin;
+}
+
+select,
+input,
+button {
+    font-size: 1.5vmin;
+}
+
+table {
+    background: #ccc;
+    font-size: 1.25vmin;
+    width: 100%;
+}
+
+/*Set the border style for tables*/
+table, th, td {
+    text-align: center;
+    border: 0.125vmin solid black;
+    border-top: none;
+    border-collapse: collapse;
+}
+
+th,
+td {
+    padding: 0.125vmin;
+}
+
+tr {
+    line-height: 1.5vmin;
+}
+
+table button {
+    font-size: 1.25vmin;
+}
+
+#str1,
+#str2 {
+    position: sticky;
+}
+
+#str1 {
+    top: 0;
+    z-index: 3;
+}
+
+#str2 {
+    top: 1.75vmin;
+    z-index: 2;
+}
+
+#strbg {
+    display: none;
+    position: fixed;
+    top: 0;
+    background: black;
+    height: 5.125vmin;
+    width: calc(50vw - 16px);
+}
+
+input[type="radio"] {
+    border: 0px;
+    width: 1.33vmin;
+    height: 1.33vmin;
+}
+
+table label {
+    position: relative;
+    top: -0.2vmin;
+}
+
+/*Make ever other row have a white background color*/
+tr:nth-child(odd) {
+    background: #fff;
+}
+
+th {
+    background: #ccc;
+}
+
+.renameBtn {
+    margin-left: 1ch;
+}
+
+.lockBtn {
+    width: 2vmin;
+}
+
+#newStateBtn,
+#findBlankBtn,
+#electionResultsBtn,
+#saveBtn,
+#loadBtn,
+#saveImgBtn,
+#sortStatesBtn {
+    margin-top: 1vmin;
+    font-size: 1.4vmin;
+    font-weight: bold;
+}
+
+.mapCntnr {
+    overflow: hidden;
+    border: 0.125vmin solid black;
+}
+
+#coMapCntnr {
+    position: relative;
+}
+
+#column-left,
+#column-right {
+    width: 50%;
+}
+
+#main {
+    display: flex;
+}
+
+.delBtn {
+    border: none;
+    border-radius: 5px;
+    background: #D72018;
+    width: 1.75em;
+    height: 1.75em;
+    font-weight: bold;
+    color: white;
+    cursor: pointer;
+}
+
+.religionLabel,
+.ancestryLabel {
+    margin-right: 1ch;
+}
+
+/*Map control button menu*/
+#controlMenu {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    margin: 1vmin;
+}
+
+.mapBtn {
+    width: 3vmin;
+    height: 3vmin;
+}
+
+#btnDown {
+    transform: rotate(90deg);
+}
+
+#btnUp {
+    transform: rotate(-90deg);
+}
+
+.panBtnColumn {
+    display: inline-block;
+    height: 100%;
+}
+
+#panBtns {
+    height: 9vmin;
+    display: flex;
+    margin: 1vmin 0 1vmin 0;
+}
+
+#btnLeftCntnr,
+#btnRightCntnr {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#btnsMiddle {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/*Popups*/
+.popupBody {
+    background: #CCC;
+    border: 0.125vmin solid black;
+    position: fixed;
+    top: 50vh;
+    left: 50vw;
+    translate: -50% -50%;
+    padding: 1vmin;
+    max-height: calc(100vh - 4.25vmin);
+    max-width: 100vw;
+    overflow: auto;
+    z-index: 4;
+}
+
+.popupBg {
+    background: rgba(0, 0, 0, 0.5);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 3;
+}
+
+/*Keys*/
+.colorBlock {
+    display: inline-block;
+    width: 4vmin;
+    height: 4vmin;
+    line-height: 4vmin;
+    font-size: 1.25vmin;
+    color: white;
+    text-shadow: 0.2vmin 0.2vmin 0.5vmin black;
+}
+
+.keyLabel {
+    font-weight: bold;
+}
+
+.key {
+    display: none;
+}
+
+#religionComplexKey,
+#ancestryKey {
+    display: flex;
+    align-items: flex-start;
+    margin-top: 2vmin;
+}
+
+#religionComplexKey > div,
+#ancestryKey > div {
+    display: inline-block;
+    margin: 0 0.5vmin 0 0.5vmin;
+}
+
+#religionComplexKey .keyLabel,
+#ancestryKey .keyLabel {
+    display: inline-block;
+    line-height: 4vmin;
+    vertical-align: top;
+    margin-right: 1ch;
+}
+
+.RC-key {
+    text-align: right;
+}
+
+/* Dropdown menu */
+#dataDropdown {
+    position: relative;
+    display: inline-block;
+    font-size: 1.5vmin;
+    width: 25vmin;
+}
+
+#dropdownBtn {
+    cursor: pointer;
+    border: 0.125vmin solid black;
+    border-radius: 0;
+    padding: 0.25vmin;
+    background: #CCCCCC;
+    width: 25vmin;
+    font-size: 1.5vmin;
+    text-align: left;
+}
+
+.dropdownBtn {
+    display: block;
+    font-size: 1.5vmin;
+    text-align: left;
+    background: #CCCCCC;
+    border: none;
+    border-radius: 0;
+    padding: 0.25vmin;
+    min-width: 100%;
+    white-space: nowrap
+}
+
+#dropdownBtn:hover,
+.dropdownBtn:hover {
+    background: #BFBFBF;
+}
+
+#dropdownBtn:active,
+.dropdownBtn:active {
+    background: #B2B2B2;
+}
+
+#dropdownContent {
+    display: none;
+    position: absolute;
+    z-index: 1;
+    min-width: 25vmin;
+}
+
+#dropdownContent.show {
+    display: flex;
+    align-items: flex-start;
+    margin-top: -0.125vmin;
+}
+
+.dropdownLayer {
+    border: 0.125vmin solid black;
+    min-width: 24.75vmin;
+    height: auto;
+}
+
+.dropdownSection {
+    display: none;
+}
+
+.dropdownSection.show {
+    display: block;
+}
+
+#dropdownSymbol {
+    display: inline-block;
+    transform: rotate(90deg);
+    font-weight: bold;
+    float: right;
+}
+
+#dropdownSymbol.open {
+    transform: rotate(-90deg);
+}
+
+#layer1 {
+    width: calc(25vmin - 2px);
+}
+
+#layer2 {
+    display: none;
+    margin-left: -0.125vmin;
+}
+
+#layer2.show {
+    display: block;
+}
+
+/* Apportionment */
+#hsCustom,
+#senSeats {
+    width: 6ch;
+}
+
+#appTable {
+    border-top: 0.125vmin solid black;
+    margin-top: 0.5vmin;
+}
+
+#appTable tr:nth-child(even) {
+    background: #fff;
+}
+
+#appTable tr:nth-child(odd) {
+    background: #ccc;
+}
+
+/* Loading cover */
+#loadingCover {
+    background: rgba(0, 0, 0, 0.5);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    font-size: 4vmin;
+    text-shadow: 0.5vmin 0.5vmin 1vmin black;
+    color: white;
+    padding-top: calc(50vh - 1em);
+    z-index: 5;
+}
+
+#cmCopy {
+    display: none;
+}
+
+/*Election Results table*/
+#ertCntnrCntnr {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 5;
+}
+
+#ertbg {
+    background: rgba(0, 0, 0, 0.5);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 1;
+}
+
+#ertCloseBtn {
+    z-index: 3;
+    margin: 1vmin;
+}
+
+#ertCntnr {
+    position: fixed;
+    z-index: 2;
+    margin-top: 4vmin;
+    max-height: calc(100vh - 8vmin);
+    overflow: auto;
+    border: 0.125vmin solid black;
+}
+
+#electionResultsTable {
+    width: auto;
+    border: none;
+}
+
+#electionResultsTable tr:first-child :is(td, th) {
+    border-top: none;
+}
+
+#electionResultsTable tr:last-child :is(td, th) {
+    border-bottom: none;
+}
+
+#electionResultsTable tr :is(td, th):first-child {
+    border-left: none;
+}
+
+#electionResultsTable tr :is(td, th):last-child {
+    border-right: none;
+}
+
+/*How to use page*/
+#htuMain,
+#creditsMain {
+    margin-left: 25%;
+    margin-right: 25%;
+    text-align: left;
+}
+
+#htuMain p {
+    text-indent: 5ch;
+    line-height: 1.33;
+}
+
+#htuMain div {
+    padding: 1vmin 1vmin 1vmin 1vmin;
+    margin-bottom: 1vmin;
+}
+
+#htuMain div h3 {
+    margin-top: 0;
+}
+
+#htuMain div :last-child {
+    margin-bottom: 0;
+}
+
+#htuMain div:target {
+    background: #E5E5E5;
+}
+
+.keyboardKey {
+    background: #333333;
+    color: white;
+    font-size: 1.4vmin;
+    border-radius: 0.33vmin;
+    padding: 0.25vmin 0.33vmin 0.25vmin 0.33vmin;
+}
+
+.htuLock {
+    height: 2vmin;
+    translate: 0 12.5%;
+}
+
+#htuTableCntnr {
+    width: 25%;
+    margin-left: 37.5%;
+    margin-right: 37.5%;
+    background: #ccc;
+    padding: 0.25vmin;
+    border: 0.125vmin solid black;
+}
+
+#htuTable {
+    text-align: left;
+    line-height: 1.33;
+}
+
+@media screen and (max-width: 1500px) {
+    table {
+        font-size: 1vmin;
+        overflow-wrap: break-word;
+        word-wrap: break-word;
+        word-break: break-word;
+        word-break: break-all;
+        hyphens: auto;
+    }
+
+    input[type="radio"] {
+        width: 1.25vmin;
+        height: 1.25vmin;
+    }
+}
+
+@media screen and (max-width: 1280px) and (max-height: 720px) and (min-width: 1280px) and (min-height: 720px) {
+    table {
+        font-size: 1.25vmin;
+        overflow-wrap: unset;
+        word-wrap: unset;
+        word-break: unset;
+        word-break: unset;
+        hyphens: unset;
+    }
+}

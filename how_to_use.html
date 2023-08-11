@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Redraw State Borders - How to Use</title>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="How to use Redraw State Borders.">
+
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h1><img src="favicon.svg" id="favicon"> Redraw State Borders</h1>
+    <p style="margin-top: 0;">v1.0.0 | <a href="index.html">return to program</a> | <a href="credits.html">credits</a></p>
+    <h2>How to Use</h2>
+    <div id="htuTableCntnr">
+        <h3>Table of Contents</h3>
+        <ul id="htuTable">
+            <li><a href="#terminology">Terminology</a></li>
+            <li><a href="#adding_states">Adding States</a></li>
+            <li><a href="#drawing">Drawing</a></li>
+            <li><a href="#erasing">Erasing</a></li>
+            <li><a href="#deleting_states">Deleting States</a></li>
+            <li><a href="#locking">Locking</a></li>
+            <li><a href="#change_color">Change a State's Color</a></li>
+            <li><a href="#undo_redo">Undo/Redo</a></li>
+            <li><a href="#state_data">State Data</a></li>
+            <li><a href="#AZ_and_VA">Arizona and Virginia</a></li>
+            <li><a href="#find_blank">Find Blank</a></li>
+            <li><a href="#sorting">Sorting the Table</a></li>
+            <li><a href="#borders">State and County borders</a></li>
+            <li><a href="#data_map">The Data Map</a></li>
+            <li><a href="#moving_the_map">Moving the Map</a></li>
+            <li><a href="#county_data">County Data</a></li>
+            <li><a href="#saving">Saving</a></li>
+            <li><a href="#loading">Loading</a></li>
+            <li><a href="#apportionment">Apportionment</a></li>
+        </ul>
+    </div>
+    <div id="htuMain">
+        <div id="terminology">
+            <h3>Terminology</h3>
+            <p>In this article, "new state" refers to the states you draw, while "old state" refers to the current 50 states.</p>
+        </div>
+
+        <div id="adding_states">
+            <h3>Adding States</h3>
+            <p>To add a new state, first click the <button style="font-weight: bold;">New State</button> button, which is on the left side under the states table just below the map. You can also use the <span class="keyboardKey">N</span> key. Next, enter a name and color (you can leave this blank for a random color). Don't worry, both of these can be changed later in the states table! A new state will be added to the states table and automatically selected.</p>
+        </div>
+
+        <div id="drawing">
+            <h3>Drawing</h3>
+            <p>To draw a new state on the map, select it in the states table by clicking the bubble next to its name. Then, you can left-click on a county to add it to that state. You can color multiple counties by dragging your mouse with the left button still down. To color an entire old state, you simply hold the <span class="keyboardKey">ctrl</span> key while you click or drag. You can hold <span class="keyboardKey">shift</span> to only color blank counties in that state. <i>Note: you can't draw with a state that's <a href="locking">locked.</a></i></p>
+        </div>
+
+        <div id="erasing">
+            <h3>Erasing</h3>
+            <p>Select "Erase" in the first row of the states table or press the <span class="keyboardKey">E</span> key. Then, click or drag. Hold the <span class="keyboardKey">ctrl</span> key to erase an entire old state and <span class="keyboardKey">shift</span> to only erase counties assigned to a specific new state.</p>
+        </div>
+
+        <div id="deleting_states">
+            <h3>Deleting States</h3>
+            <p>To delete a new state, click the <button class="delBtn">X</button> button to the left of the state's name in the "Delete" column of the states table.</p>
+        </div>
+
+        <div id="locking">
+            <h3>Locking</h3>
+            <p>Locking a new state will prevent it from being edited until it's unlocked. Simply click on the lock icon in the "Lock" column of the states table to turn it off or on. <img src="lock-open.svg" class="htuLock"> means it's not locked and <img src="lock-closed.svg" class="htuLock"> means it is locked.</p>
+        </div>
+
+        <div id="change_color">
+            <h3>Changing a State's Color</h3>
+            <p>A color picker <input type="color"> will display to the right of a new state's name in the states table in the "Color" column. The exact function depends on your browser, but the state should update in real time. On Chromium-based browsers, like Google Chrome and Brave, it'll confirm as soon as you click away, while on Firefox-based browsers, like Firefox and Waterfox, you'll have the option to click "OK" or "Cancel".</p>
+        </div>
+
+        <div id="undo_redo">
+            <h3>Undo/Redo</h3>
+            <p>Due to the way the program works, it's nearly impossible to implement a proper undo/redo function, at least to my knowledge. I suggest <a href="saving">saving</a> often.</p>
+        </div>
+
+        <div id="state_data">
+            <h3>State Data</h3>
+            <p>The states table has a lot of information, including race, religion, ancestry, and election data. The latter three are simplified to fit in the table. Religion and ancestry have a <button>more</button> button you can click to generate a popup breaking everything down, while election data uses the <button style="font-weight: bold;">Election Results</button> button below the table to generate its own table for every state. In both case, you can use the <button>close</button> button or click away to close the popup.</p>
+            <p>Will I add more elections? I hope to! But it does take a decent amount of work. I have to gather the data, fix Arizona and Virginia, convert it to a JSON file (with a program I wrote that you can find <a href="https://github.com/TheAmeliaMay/CSV2JSON" target="_blank">here</a>), and then change multiple parts of the code to be able to use it.</p>
+        </div>
+
+        <div id="AZ_and_VA">
+            <h3>Arizona and Virginia</h3>
+            <p>Virginia has a few 'independent cities' that are entirely surrounded by a county. Since you have to color both, I decided to combine them. Arizona's counties are so bad I decided to redraw them, but if you want to use the old map, click "Old AZ" under the states table. To switch back to my version, click "New AZ" in the same location. <i>Note: <a href="#saving">save files</a> have to be loaded with the correct map of Arizona, otherwise it'll be erased.</i></p>
+        </div>
+
+        <div id="find_blank">
+            <h3>Find blank</h3>
+            <p>The <button style="font-weight: bold;">Find Blank</button> button under the states table will generate a popup with a list of counties not assigned to any new state. You can click <button>Go to</button> next to a county's name to zoom in on it. There's a lot of small counties you may have missed! If you want to leave some counties blank without catching them, just <a href="#adding_states">add a new state</a>, <a href="#drawing">draw</a> those counties to it, and <a href="#deleting">delete</a> it when you're done.</p>
+        </div>
+
+        <div id="sorting">
+            <h3>Sorting the Table</h3>
+            <p>The <button style="font-weight: bold;">Sort</button> button will sort the states table alphabetically (this is not case sensitive) and ensure the key for PNG images will also be sorted properly.</p>
+        </div>
+
+        <div id="borders">
+            <h3>State and County Borders</h3>
+            <p>You can find <input type="checkbox" id="checkbox" checked> <label for="checkbox">checkboxes</label> under the states table to enable/disable old state and county borders on the map. This will also apply to <a href="#saving">saving images.</a> <i>Note: due to a bug in how SVGs are displayed, you'll still be able to see a small border between counties, but it's not actually there and won't affect your saved images.</i> I don't know how to implement a feature to display new state borders, unfortunately, so you'll have to make sure their <a href="#change_color">colors</a> contrast enough.</p>
+        </div>
+
+        <div id="data_map">
+            <h3>The Data Map</h3>
+            <p>The map on the right is used for displaying data. You can choose which kind of data to display with the data dropdown underneath it. Click it to open the list of categories and click on a category to open the list of data items you can choose from. Clicking one of them will recolor the map. Clicking or dragging on the data map will affect the main map. This is useful if you want to color specific counties based on the data being displayed.</p>
+        </div>
+
+        <div id="moving_the_map">
+            <h3>Moving the Map</h3>
+            <p>You can click the buttons on the map to move left, right, up, or down, or to zoom in or out. <button>Reset</button> will return it to the default position and zoom level. You can also use the arrow keys on your keyboard to move, <span class="keyboardKey">+</span> to zoom in, and <span class="keyboardKey">-</span> to zoom out. The <a href="#data_map">data map</a> is also affected.</p>
+        </div>
+
+        <div id="county_data">
+            <h3>County Data</h3>
+            <p>Hovering over a county on the data map with your mouse will display the data for that county in a table under the map. There are no buttons to see more ancestry, religion, or election data, because it'll probably change to another county before you get your mouse down there.</p>
+        </div>
+
+        <div id="saving">
+            <h3>Saving</h3>
+            <p>You can save your progress to a JSON file by clicking the <button style="font-weight: bold;">Save Configuration</button> button under the states table. You can save an image with the <button style="font-weight: bold;">Save Image</button> button. There's an option to choose PNG or SVG and if you choose PNG, there's also an option to select the resolution.</p>
+        </div>
+
+        <div id="loading">
+            <h3>Loading</h3>
+            <p>You can upload a save file from your computer with the <button>Choose File</button> or <button>Browse...</button> button (depending on your browser) under the states table.</p>
+        </div>
+
+        <div id="apportionment">
+            <h3>Apportionment</h3>
+            <p>At the bottom of the right-hand column, you'll find a <button>Run Apportionment</button> button preceded by a few options. This is for apportioning seats in the House of Representatives as well as Electoral College votes. Running it will generate a new table listing each state and its number of seats and electoral votes. <i>Note: counties not assigned to a state will be excluded from the count! This can be used to simulate territorial losses.</i></p>
+            <p>You can set the number of seats to a custom number or tell the program to calculate it according to the <a href="https://en.wikipedia.org/wiki/Wyoming_Rule" target="_blank">Wyoming Rule</a> or <a href="https://en.wikipedia.org/wiki/Cube_root_law" target="_blank">Cube Root Law.</a> You can also select the <a href="https://www.census.gov/history/www/reference/apportionment/methods_of_apportionment.html" target="_blank">apportionment method.</a> <i>Note: I found contradictory information about this online, so I used the Census Bureau's information for everything except the <a href="https://en.wikipedia.org/wiki/D'Hondt_method" target="_blank">Jefferson Method,</a> which was too vague, so I used Wikipedia for that.</i> "Sen./State" is simply the number of US Senators to give each state. This only affects the number of electoral votes, which is equal to House seats plus Senate seats.</p>
+        </div>
+    </div>
+</body>
+</html>
