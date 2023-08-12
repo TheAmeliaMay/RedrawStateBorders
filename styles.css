@@ -313,13 +313,13 @@ th {
 }
 
 .dropdownLayer {
-    border: 0.125vmin solid black;
     min-width: 24.75vmin;
     height: auto;
 }
 
 .dropdownSection {
     display: none;
+    border: 0.125vmin solid black;
 }
 
 .dropdownSection.show {
@@ -339,6 +339,7 @@ th {
 
 #layer1 {
     width: calc(25vmin - 2px);
+    border: 0.125vmin solid black;
 }
 
 #layer2 {
@@ -348,6 +349,18 @@ th {
 
 #layer2.show {
     display: block;
+}
+
+#dropdownRace {
+    margin-top: 2.125vmin;
+}
+
+#dropdownReligion {
+    margin-top: 4.25vmin;
+}
+
+#dropdownAncestry {
+    margin-top: 6.375vmin;
 }
 
 /* Apportionment */
