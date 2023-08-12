@@ -330,6 +330,11 @@
 
         // Update a state's labels
         function updateLabels(state) {
+            // Ignore deleted states
+            if (states[state]['name'] == 'DELETED') {
+                return;
+            }
+
             // Update the race labels
             for (let i = 0; i < labels.length; i++) {
                 let rounded;
