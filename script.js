@@ -974,6 +974,11 @@ function showElectionResults() {
     for (let i = 0; i < states.length; i++) {
         let state = states[i];
 
+        // Skip it if it's deleted
+        if (state['name'] == 'DELETED') {
+            continue;
+        }
+
         // Create the row
         let row = document.createElement('tr');
 
