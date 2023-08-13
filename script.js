@@ -699,6 +699,12 @@ function renameState(id) {
     // Get the new name
     var name = prompt('New name:');
 
+    // Don't allow DELETED as a name
+    if (name == 'DELETED') {
+        alert('Invalid name!')
+        return;
+    }
+
     // Make sure the name doesn't already exist
     for (let i = 0; i < states.length; i++) {
         if (states[i]['name'] == name) {
@@ -1310,6 +1316,12 @@ function newState(name=null, color=null, locked=false) {
     // Get the name from the user
     if (name === null) {
         var name = prompt('Name:');
+
+        // Don't allow DELETED as a name
+        if (name == 'DELETED') {
+            alert('Invalid name!')
+            return;
+        }
     }
 
     if (name && name.trim() !== '') {
