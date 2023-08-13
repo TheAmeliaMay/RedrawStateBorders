@@ -1,4 +1,4 @@
-const version = '1.0.4';
+const version = '1.0.5';
 
 // The list of valid hex characters
 const hex = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'];
@@ -2383,22 +2383,23 @@ function saveImage() {
             let lineHeight = Math.round(fontSize * 2);
             let boxSize = Math.round(fontSize * 1.5);
 
-            // Get the number of columns (32 states per column max)
-            let deleted = 0;
+            // Make a new states array without deleted states
+            let newStates = [];
 
             for (let i = 0; i < states.length; i++) {
-                if (states[i]['name'] == 'DELETED') {
-                    deleted++;
+                if (states[i]['name'] != 'DELETED') {
+                    newStates.push(states[i]);
                 }
             }
 
-            let columns = Math.ceil((states.length - deleted) / 32)
+            // Get the number of columns (32 states per column max)
+            let columns = Math.ceil((newStates.length) / 32)
 
             // Get the column width
             ctx.font = `${fontSize}px Arial`;
             let columnWidth = 0;
-            for (let i = 0; i < states.length; i++) {
-                let measurement = ctx.measureText(states[i]['name']).width;
+            for (let i = 0; i < newStates.length; i++) {
+                let measurement = ctx.measureText(newStates[i]['name']).width;
                 if (measurement > columnWidth) {
                     columnWidth = measurement;
                 }
@@ -2422,18 +2423,13 @@ function saveImage() {
 
             // Draw the key
             let dCount = 0;
-            for (let i = 0; i < states.length; i++) {
-                if (states[i]['name'] == 'DELETED') {
-                    dCount++;
-                    continue;
-                }
-
+            for (let i = 0; i < newStates.length; i++) {
                 // Find which column we're in
                 let column = Math.floor((i - dCount) / 32);
 
                 // Get the x and y
                 let x = image.width + margin * 2 + column * columnWidth;
-                let y = margin + lineHeight * (i - deleted - column * 32);
+                let y = margin + lineHeight * (i - column * 32);
 
                 // Draw a square with the state's color and a black border
                 ctx.fillStyle = states[i]['color'];
@@ -2447,7 +2443,7 @@ function saveImage() {
                 ctx.fillStyle = 'black';
                 ctx.font = `${fontSize}px Arial`;
                 ctx.textBaseline = 'middle';
-                ctx.fillText(states[i]['name'], x + boxSize + fontSize, y + boxSize / 2 + 2);
+                ctx.fillText(newStates[i]['name'], x + boxSize + fontSize, y + boxSize / 2 + 2);
             }
 
             // Download the image and destroy the canvas
