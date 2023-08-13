@@ -181,13 +181,6 @@ function sortStates() {
         return a['name'].localeCompare(b['name']);
     });
 
-    // Remove deleted states
-    for (let i = 0; i < states.length; i++) {
-        if (states[i]['name'] == 'DELETED') {
-            states.splice(i, 1);
-        }
-    }
-
     // Clear the table
     var rows = document.getElementById('statesTable').getElementsByTagName('tr');
     // Ignores the first three rows (two header rows and the erase option) and iterates backwards because we're deleting rows
@@ -198,7 +191,9 @@ function sortStates() {
 
     // Add the states back to the table in the right order
     for (let i = 0; i < states.length; i++) {
-        addState(states[i]['name'], i);
+        if (states[i]['name'] != 'DELETED') {
+            addState(states[i]['name'], i);
+        }
     }
 }
 
