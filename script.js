@@ -2171,7 +2171,7 @@ function apportion() {
         }
 
         // Allocate the rest
-        while (seatsApportioned != seats) {
+        while (seatsApportioned != hs) {
             // Find the state(s) with the largest quotient
             let largest = [];
             let largestQ = -1;
