@@ -2081,12 +2081,26 @@ function apportion() {
                         // Keep track of the number of seats apportioned
                         seatsApportioned += seats;
 
-                        // Add the state to the info dict
-                        stateInfo.push({
-                            'seats': seats
-                        });
+                        if (stateInfo.length > i) {
+                            // Change the value if it already exists
+                            stateInfo[i] = {
+                                'seats': seats
+                            }
+                        } else {
+                            // If it doesn't exist, push a new one
+                            stateInfo.push({
+                                'seats': seats
+                            });
+                        }
+                        
                     } else {
-                        stateInfo.push('DELETED');
+                        if (stateInfo.length > i) {
+                            // Change the value if it already exists
+                            stateInfo[i] = 'DELETED'
+                        } else {
+                            // If it doesn't exist, push a new one
+                            stateInfo.push('DELETED');
+                        }
                     }
                 }
 
@@ -2118,8 +2132,28 @@ function apportion() {
                         'decimal': quotient - seats,
                         'seats': seats
                     });
+
+                    if (stateInfo.length > i) {
+                        // Change the value if it already exists
+                        stateInfo[i] = {
+                            'decimal': quotient - seats,
+                            'seats': seats
+                        }
+                    } else {
+                        // If it doesn't exist, push a new one
+                        stateInfo.push({
+                            'decimal': quotient - seats,
+                            'seats': seats
+                        });
+                    }
                 } else {
-                    stateInfo.push('DELETED');
+                    if (stateInfo.length > i) {
+                        // Change the value if it already exists
+                        stateInfo[i] = 'DELETED'
+                    } else {
+                        // If it doesn't exist, push a new one
+                        stateInfo.push('DELETED');
+                    }
                 }
             }
 
