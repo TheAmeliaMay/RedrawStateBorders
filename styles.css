@@ -535,7 +535,15 @@ th {
 
 @media screen and (max-width: 1400px) {
     table {
+        font-size: 1.4vmin;
+    }
+
+    #electionResultsTable {
         font-size: 1.5vmin;
+    }
+
+    #electionResultsTable :is(td, th) {
+        padding: 0.5rem;
     }
 }
 
