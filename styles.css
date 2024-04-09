@@ -519,7 +519,7 @@ th {
 
 @media screen and (max-width: 1500px) {
     table {
-        font-size: 1vmin;
+        font-size: 1.25vmin;
         overflow-wrap: break-word;
         word-wrap: break-word;
         word-break: break-word;
